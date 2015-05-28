@@ -1,0 +1,15 @@
+<toc>
+<tocitem text="CWMacrosCOM">
+	<tocitem text="��������">
+		<tocitem target="topic1" text="��� ���� ��� ���������"></tocitem>
+    		<tocitem target="topic2" text="��� ������"></tocitem>
+  	</tocitem>
+  	<tocitem text="��������� � ������">
+    		<tocitem target="topic3" text="��������� ����������"></tocitem>
+      		<tocitem target="topic4" text="��������� ������"></tocitem>
+    	</tocitem>
+	<tocitem text="������ � ����������">
+    		<tocitem target="topic5" text="����� �� ���������"></tocitem>
+    	</tocitem>
+</tocitem>
+</toc>

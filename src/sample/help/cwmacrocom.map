@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='windows-1251' standalone='yes' ?>
+<map version="1.0">
+	<mapID target="topic1" url="topic1.html" />
+	<mapID target="topic2" url="topic2.html" />
+</map>

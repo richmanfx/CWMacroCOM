@@ -1,0 +1,72 @@
+ 
+ - звук генерить (длительность и тон)
+ 	-- Начать с этого!!!   http://blog.eqlbin.ru/2011/02/wave-java.html
+ 	-- http://docs.oracle.com/javase/tutorial/sound/MIDI-synth.html
+ 	-- http://habrahabr.ru/post/191422/
+	-- Играть MP3: http://www.cyberforum.ru/blogs/196823/blog1493.html
+		--- последовательность МИДИ хранить в файле, чтобы можно было менять форму посылки прямо в файле:
+			http://samoucka.ru/document30319.html
+	-- про морзе посылки на PHP: http://www.codeproject.com/Articles/85339/Morse-Code-Generation-from-Text
+	
+
+
+ - запуск макроса и коммутация COM-ом
+
+ - зарегиться на GitHub и выкладывать туда исходники:
+	- http://smarly.com/5-git-essential-training/178-setting-up-a-github-account
+	Username:	richmanfx
+	E-mail:		richmanfx@yandex.ru
+	Password:	
+
+ - нужен ли префикс @Cfg у переменных в EditControllere.java?      --- убрал пока
+
+ - Maven - почитать, сделать им сборку, в jar и т.д.
+
+ - паку .cwmacrocom - проверять на существование и создавать
+
+ - запускать как jar-файл: 
+ 	-- http://devcolibri.com/4627
+ 	-- http://www.javalobby.org/articles/java2exe/
+	-- http://habrahabr.ru/post/178481/
+
+ - сделать в макросах возможность русских символов в CP-1251
+
+ - почитать про лицензии, под какой-либо выпускать, в Help добавить
+
+ - добавить на сайт в шаблоны:
+				- запись в INI-файл
+				- чтение из INI-файла
+				- проверка значений регулярными выражениями
+				-
+==
+Готово
+--------------------
+ - проверки конфигурационных значений сделать 
+	-- диапазоны допустимые
+	-- что только цифры (или только буквы)
+	-- http://javatalks.ru/topics/44009
+
+--------------------
+ - придумать какие настройки хранить в конфиге - отдельный файл
+	-- настройки СОМ-порта
+	-- номер текущего работающего порта
+	-- cw скорость
+	-- DTR или DSR
+	-- CW и PTT делать
+	-- задержка от PTT до CW
+	-- задержка отпускания от CW до PTT
+
+--------------------
+ - читать из файла соответствие символов и точек-тире (A .-)
+	-- про HashMap: http://info.javarush.ru/translation/2013/08/18/%D0%9A%D0%B0%D0%BA-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D1%8B-%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D0%B8-ArrayList-Vector-%D0%B8-HashMap-%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-Java-Collections-Framework.html
+
+--------------------
+         С путями беда - приходится в out класть, пока сделал в файлах FXML
+	 - прикрутить CSS-файл с расцветкой
+	-- http://habrahabr.ru/post/197984/
+	-- http://ru.intechcore.com/javafx-and-css-styles/	// Отличные примеры!
+	-- всё про CSS в JavaFX: http://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
+	-- http://code.makery.ch/library/javafx-8-tutorial/ru/part4/  // Это работает!
+--------------------
+	 - иконку прикрутить	=>	С путями беда - приходится в out класть. Формат PNG.
+
