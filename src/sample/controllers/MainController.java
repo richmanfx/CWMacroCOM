@@ -170,7 +170,8 @@ public class MainController {
             case F5:
 //                PlayMacro.playMacro(labelF5.getText());
                 buttonF5.requestFocus();
-                PlayMacro.TestWaveFile();
+                // PlayMacro.TestWaveFile();
+                PlayMacro.TestSample();
                 break;
 
             case F6:

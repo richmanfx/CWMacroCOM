@@ -22,6 +22,16 @@
                         <Font size="16.0" />
                      </font>
                   </TextField>
+                  <TextField fx:id="textFieldCaliberCWSpeed" layoutX="438.0" layoutY="10.0" prefHeight="32.0" prefWidth="60.0" styleClass="textfield" AnchorPane.rightAnchor="40.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutY="15.0" styleClass="label2" text="Калибр скорости CW" AnchorPane.rightAnchor="120.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="30.0" />

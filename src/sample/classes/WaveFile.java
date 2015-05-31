@@ -10,7 +10,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 
 /**
- * Created by Asus on 17.05.2015.
+ * Created by alien
  */
 
 public class WaveFile {

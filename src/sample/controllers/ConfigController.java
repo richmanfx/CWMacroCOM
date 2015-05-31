@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 public class ConfigController {
 
     @FXML private TextField textFieldCWSpeed;
+    @FXML private TextField textFieldCaliberCWSpeed;
     @FXML private TextField textFieldNamePort;
     @FXML private TextField textFieldBits;
     @FXML private TextField textFieldBaudRate;
@@ -39,6 +40,7 @@ public class ConfigController {
 
         // Заполняем поля и чекбоксы из INI-файла
         textFieldCWSpeed.setText(Integer.toString(ReadIniFile.speedCW));
+        textFieldCaliberCWSpeed.setText(Integer.toString(ReadIniFile.caliberSpeedCW));
 
         textFieldNamePort.setText(ReadIniFile.nameCOMport.toUpperCase());
         textFieldBaudRate.setText(Integer.toString(ReadIniFile.baudRate));
@@ -123,11 +125,20 @@ public class ConfigController {
         if (Integer.parseInt(textFieldCWSpeed.getText()) < minCWSpeed ||
                 Integer.parseInt(textFieldCWSpeed.getText()) > maxCWSpeed) {
             returnValue = "Скорость CW\n" +     // Невалидное значение параметра
-                    "(40...200)";
+                    "(40"+minCWSpeed+"..."+maxCWSpeed+")";
         }
 //        if(!Objects.equals(returnValue, "GoodValue")) {
 //            return returnValue;
 //        }
+
+        // Диапазон допустимого значения калибра скорости CW
+        int minCaliberCWSpeed = 3000;
+        int maxCaliberCWSpeed = 9000;
+        if (Integer.parseInt(textFieldCaliberCWSpeed.getText()) < minCaliberCWSpeed ||
+                Integer.parseInt(textFieldCaliberCWSpeed.getText()) > maxCaliberCWSpeed) {
+            returnValue = "Калибр CW\n" +     // Невалидное значение параметра
+                    "("+minCaliberCWSpeed+"..."+maxCaliberCWSpeed+")";
+        }
 
         // Наименование COM-порта
         // TODO: для Unix добавить имена из /dev
@@ -208,6 +219,7 @@ public class ConfigController {
     private void actionSaveIni() throws InvocationTargetException, NoSuchMethodException, InstantiationException, IOException, IllegalAccessException {
         // Сохраняем параметры из формы в INI-файл
         WriteIniFile.speedCW = Integer.parseInt(textFieldCWSpeed.getText());
+        WriteIniFile.caliberSpeedCW = Integer.parseInt(textFieldCaliberCWSpeed.getText());
 
         WriteIniFile.nameCOMport = textFieldNamePort.getText().toUpperCase();
         WriteIniFile.baudRate = Integer.parseInt(textFieldBaudRate.getText());

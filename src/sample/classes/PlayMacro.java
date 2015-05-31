@@ -2,6 +2,7 @@ package sample.classes;
 
 import sample.filework.datafilework.ReadDataFile;
 import sample.filework.inifilework.ReadIniFile;
+import sample.objects.Sample;
 
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
@@ -239,8 +240,6 @@ public class PlayMacro {
     private static void playSymbol(String cwSymbol, int dot, int dash) {
         char[] dotDashMassive = cwSymbol.toCharArray();
 
-
-
         for(int i=0; i<dotDashMassive.length; i++) {
 //            System.out.print(datDashMassive [i]);
 
@@ -285,15 +284,40 @@ public class PlayMacro {
         }
     }
 
+    public  static void TestSample() throws Exception {
+        int tone = 700;         // Тональность посылки, Гц
+        int ramp = 50;           // Длительность фронта/спада посылки, мс
+        int duration = ReadIniFile.caliberSpeedCW / ReadIniFile.speedCW;
+        Sample dotSample = new Sample(duration, tone, ramp);
+
+        int[] samples;
+
+        System.out.println("Tone: " + dotSample.getTone());
+        System.out.println("Ramp: " + dotSample.getRamp());
+        System.out.println("Длительность, мс: " + dotSample.getDuration());
+        dotSample.generateSample();
+        System.out.println("Tone: " + dotSample.getTone());
+        samples = dotSample.getSamples();
+
+        int samplingSize = 4;
+        final int mono =1;
+        int samplingFrequency = 44100;
+        WaveFile wf = new WaveFile(samplingSize, samplingFrequency, mono, samples);
+        wf.saveFile(new File("C:/Users/Asus/testwav1.wav"));
+        System.out.println("Продолжительность моно-файла: "+wf.getDurationTime()+ " сек.");
+    }
+
+
     public static void TestWaveFile() throws Exception {
 
         // создание одноканального wave-файла из массива целых чисел
         System.out.println("Создание моно-файла...");
-        int quantiySamples = 10000;
+        int samplingSize = 4;
+        int quantitySamples = 10000;
         int frequency = 700;
         int samplingFrequency = 44100;
         double maxAmplitude = 0.5;
-        int[] samples = new int[quantiySamples];
+        int[] samples = new int[quantitySamples];
         int i=0;
         // y=sin(100*t).*exp(-t);
         for(i=0; i < samples.length/9; i++){
@@ -327,7 +351,7 @@ public class PlayMacro {
         }
 
         final int mono =1;
-        WaveFile wf = new WaveFile(4, samplingFrequency, mono, samples);
+        WaveFile wf = new WaveFile(samplingSize, samplingFrequency, mono, samples);
         wf.saveFile(new File("C:/Users/Asus/testwav1.wav"));
         System.out.println("Продолжительность моно-файла: "+wf.getDurationTime()+ " сек.");
 

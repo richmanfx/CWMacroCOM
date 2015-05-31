@@ -16,22 +16,26 @@ public class WriteIniFile
 {
     // Параметры в файле конфигурации
 
+    // Скорость CW
+    @Cfg
+    public static int speedCW;
+
+    // Калибр скорости  CW
+    @Cfg
+    public static int caliberSpeedCW;
+
     // Название СОМ порта
     @Cfg
     public static String nameCOMport;
     // настройки СОМ-порта
     @Cfg
-    public static int baudRate;      // Скорость порта
+    public static int baudRate;         // Скорость порта
     @Cfg
     public static int dataBits;         // Бит в пакете
     @Cfg
     public static int stopBits;         // Количество стоп-битов
     @Cfg
-    public static boolean parity;   // Есть ли проверка чётности
-
-    // Скорость CW
-    @Cfg
-    public static int speedCW;
+    public static boolean parity;       // Есть ли проверка чётности
 
     // Чем манипулировать - DTR или RTS?
     @Cfg

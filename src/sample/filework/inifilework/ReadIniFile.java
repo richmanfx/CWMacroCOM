@@ -14,7 +14,13 @@ import java.lang.reflect.InvocationTargetException;
 
 public class ReadIniFile
 {
-    // Параметры в файле конфигурации
+    // Параметры в файле конфигурации с значениями по умолчанию
+
+    // Скорость CW
+    @Cfg public static int speedCW = 100;
+
+    // Калибр скорости  CW
+    @Cfg public static int caliberSpeedCW = 5800;
 
     // Название СОМ порта
     @Cfg public static String nameCOMport = "COM6";
@@ -23,9 +29,6 @@ public class ReadIniFile
     @Cfg public static int dataBits = 8;         // Бит в пакете
     @Cfg public static int stopBits = 1;         // Количество стоп-битов
     @Cfg public static boolean parity = false;   // Есть ли проверка чётности
-
-    // Скорость CW
-    @Cfg public static int speedCW = 100;
 
     // Чем манипулировать - DTR или RTS?
     @Cfg public static String cwManipulationSignal = "DTR";
