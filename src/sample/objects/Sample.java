@@ -9,7 +9,7 @@ public class Sample {
     private int duration;           // Продолжительность сэмпла, мс
     private int tone;               // Тональность посылки (частота сэмпла)
     private int ramp;               // Длительность фронта/ската (0...20 мс)
-    int[] samples;                  // Массив выборок
+    short[] samples;                  // Массив выборок
 
 
     // Конструктор
@@ -32,7 +32,7 @@ public class Sample {
         return ramp;
     }
 
-    public int[] getSamples() {
+    public short[] getSamples() {
         return samples;
     }
 
@@ -62,24 +62,24 @@ public class Sample {
         //  продолжительность в секундах поделить на период дискретизации и округлить
         int quantitySamples = Math.round(duration * samplingFrequency / 1000);
 
-        samples = new int[quantitySamples];       // Массив выборок
+        samples = new short[quantitySamples];       // Массив выборок
 
         // Фронт
         for (i = 0; i < rampSamples; i++) {
-            samples[i] = (int) Math.round((maxAmplitude * Integer.MAX_VALUE) *
+            samples[i] = (short) Math.round((maxAmplitude * Short.MAX_VALUE) *
                     (Math.sin(2.0 * Math.PI * (double) tone * (double) i / (double) samplingFrequency)) *
                     (double) i * deltaAmplitude);
         }
 
         // Середина посылки
         for (i = rampSamples; i < samples.length - rampSamples; i++) {
-            samples[i] = (int) Math.round((maxAmplitude * Integer.MAX_VALUE) *
+            samples[i] = (short) Math.round((maxAmplitude * Short.MAX_VALUE) *
                     (Math.sin(2.0 * Math.PI * (double) tone * (double) i / (double) samplingFrequency)));
         }
 
         // Спад
         for (i = samples.length - rampSamples; i < samples.length; i++) {
-            samples[i] = (int) Math.round((maxAmplitude * Integer.MAX_VALUE) *
+            samples[i] = (short) Math.round((maxAmplitude * Short.MAX_VALUE) *
                     (Math.sin(2 * Math.PI * (double) tone * (double) i / (double) samplingFrequency)) *
                     (((double) samples.length - (double) i) * deltaAmplitude));
         }

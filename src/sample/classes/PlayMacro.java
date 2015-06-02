@@ -7,6 +7,7 @@ import sample.objects.Sample;
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
+import javax.sound.sampled.*;
 import java.io.File;
 
 /**
@@ -286,25 +287,60 @@ public class PlayMacro {
 
     public  static void TestSample() throws Exception {
         int tone = 700;         // Тональность посылки, Гц
-        int ramp = 50;           // Длительность фронта/спада посылки, мс
+        int ramp = 5;           // Длительность фронта/спада посылки, мс
         int duration = ReadIniFile.caliberSpeedCW / ReadIniFile.speedCW;
         Sample dotSample = new Sample(duration, tone, ramp);
+        Sample dashSample = new Sample(3*duration, tone, ramp);
 
-        int[] samples;
+        short[] dotSamples;
+        short[] dashSamples;
 
         System.out.println("Tone: " + dotSample.getTone());
         System.out.println("Ramp: " + dotSample.getRamp());
         System.out.println("Длительность, мс: " + dotSample.getDuration());
         dotSample.generateSample();
-        System.out.println("Tone: " + dotSample.getTone());
-        samples = dotSample.getSamples();
+        dashSample.generateSample();
+        dotSamples = dotSample.getSamples();        // Массив сэмпла
+        dashSamples = dashSample.getSamples();
 
-        int samplingSize = 4;
+
+
+
+
+        // Сохраняем в WAV-файл
+        short samplingSize = 2;
         final int mono =1;
         int samplingFrequency = 44100;
-        WaveFile wf = new WaveFile(samplingSize, samplingFrequency, mono, samples);
-        wf.saveFile(new File("C:/Users/Asus/testwav1.wav"));
-        System.out.println("Продолжительность моно-файла: "+wf.getDurationTime()+ " сек.");
+
+        WaveFile dot_wf = new WaveFile(samplingSize, samplingFrequency, mono, dotSamples);
+        dot_wf.saveFile(new File("C:/Users/Asus/dot.wav"));
+
+        WaveFile dash_wf = new WaveFile(samplingSize, samplingFrequency, mono, dashSamples);
+        dash_wf.saveFile(new File("C:/Users/Asus/dash.wav"));
+
+        // Вопроизводим WAV-файл
+        try {
+
+            File soundFile = new File("C:/Users/Asus/dot.wav");
+            //Получаем AudioInputStream
+            //Вот тут могут полететь IOException и UnsupportedAudioFileException
+            AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+
+            //Получаем реализацию интерфейса Clip
+            //Может выкинуть LineUnavailableException
+            Clip clip = AudioSystem.getClip();
+
+            //Загружаем наш звуковой поток в Clip
+            //Может выкинуть IOException и LineUnavailableException
+            clip.open(ais);
+
+           // clip.setFramePosition(0); //устанавливаем указатель на старт
+            clip.start(); //Поехали!!!
+        }
+        catch(UnsupportedAudioFileException | LineUnavailableException exc) {
+            exc.printStackTrace();
+        }
+//        System.out.println("Продолжительность моно-файла: "+wf.getDurationTime()+ " сек.");
     }
 
 
@@ -312,17 +348,17 @@ public class PlayMacro {
 
         // создание одноканального wave-файла из массива целых чисел
         System.out.println("Создание моно-файла...");
-        int samplingSize = 4;
+        short samplingSize = 2;
         int quantitySamples = 10000;
         int frequency = 700;
         int samplingFrequency = 44100;
         double maxAmplitude = 0.5;
-        int[] samples = new int[quantitySamples];
+        short[] samples = new short[quantitySamples];
         int i=0;
         // y=sin(100*t).*exp(-t);
         for(i=0; i < samples.length/9; i++){
 //            samples[i] = (int)Math.round((0.5*Integer.MAX_VALUE)*(Math.sin(2*Math.PI*frequency*i/samplingFrequency)));
-            samples[i] = (int)Math.round((maxAmplitude*Integer.MAX_VALUE)*
+            samples[i] = (short)Math.round((maxAmplitude*Short.MAX_VALUE)*
                     (Math.sin(2*Math.PI*frequency*i/samplingFrequency))*
 
                     //11/Math.sqrt(2*Math.PI)*
@@ -332,7 +368,7 @@ public class PlayMacro {
 
         for(i=samples.length/9; i < 8*samples.length/9; i++){
 //            samples[i] = (int)Math.round((0.5*Integer.MAX_VALUE)*(Math.sin(2*Math.PI*frequency*i/samplingFrequency)));
-            samples[i] = (int)Math.round((maxAmplitude*Integer.MAX_VALUE)*
+            samples[i] = (short)Math.round((maxAmplitude*Short.MAX_VALUE)*
                     (Math.sin(2*Math.PI*frequency*i/samplingFrequency)));
 
             //11/Math.sqrt(2*Math.PI)*
@@ -342,7 +378,7 @@ public class PlayMacro {
 
         for(i=8*samples.length/9; i < samples.length; i++){
 //            samples[i] = (int)Math.round((0.5*Integer.MAX_VALUE)*(Math.sin(2*Math.PI*frequency*i/samplingFrequency)));
-            samples[i] = (int)Math.round((maxAmplitude*Integer.MAX_VALUE)*
+            samples[i] = (short)Math.round((maxAmplitude*Short.MAX_VALUE)*
                     (Math.sin(2*Math.PI*frequency*i/samplingFrequency))*
 
                     //11/Math.sqrt(2*Math.PI)*
@@ -353,6 +389,7 @@ public class PlayMacro {
         final int mono =1;
         WaveFile wf = new WaveFile(samplingSize, samplingFrequency, mono, samples);
         wf.saveFile(new File("C:/Users/Asus/testwav1.wav"));
+        wf.getAudioFormat();
         System.out.println("Продолжительность моно-файла: "+wf.getDurationTime()+ " сек.");
 
         // Создание стерео-файла

@@ -125,7 +125,7 @@ public class ConfigController {
         if (Integer.parseInt(textFieldCWSpeed.getText()) < minCWSpeed ||
                 Integer.parseInt(textFieldCWSpeed.getText()) > maxCWSpeed) {
             returnValue = "Скорость CW\n" +     // Невалидное значение параметра
-                    "(40"+minCWSpeed+"..."+maxCWSpeed+")";
+                    "("+minCWSpeed+"..."+maxCWSpeed+")";
         }
 //        if(!Objects.equals(returnValue, "GoodValue")) {
 //            return returnValue;

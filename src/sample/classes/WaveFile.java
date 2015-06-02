@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class WaveFile {
 
-    private int INT_SIZE = 4;
+    private int INT_SIZE = 2;       // Два байта => 16 бит
     public final int NOT_SPECIFIED = -1;
     private int sampleSize = NOT_SPECIFIED;
     private long framesCount = NOT_SPECIFIED;
@@ -66,7 +66,7 @@ public class WaveFile {
      * @throws Exception если размер сэмпла меньше, чем необходимо
      * для хранения переменной типа int
      */
-    WaveFile(int sampleSize, float sampleRate, int channels, int[] samples) throws Exception {
+    WaveFile(int sampleSize, float sampleRate, int channels, short[] samples) throws Exception {
 
         if(sampleSize < INT_SIZE){
             throw new Exception("sample size < int size");
@@ -74,6 +74,7 @@ public class WaveFile {
 
         this.sampleSize = sampleSize;
         this.af = new AudioFormat(sampleRate, sampleSize*8, channels, true, false);
+//        this.af = new AudioFormat(sampleRate, sampleSize*2, channels, true, false);     // Zoer - WAV 16 bit
         this.data = new byte[samples.length*sampleSize];
 
         // заполнение данных
@@ -185,11 +186,11 @@ public class WaveFile {
      * @param sampleNumber - номер сэмпла
      * @param sampleValue - значение сэмпла
      */
-    public void setSampleInt(int sampleNumber, int sampleValue){
+    public void setSampleInt(int sampleNumber, short sampleValue){
 
         // представляем целое число в виде массива байт
         byte[] sampleBytes = ByteBuffer.allocate(sampleSize).
-                order(ByteOrder.LITTLE_ENDIAN).putInt(sampleValue).array();
+                order(ByteOrder.LITTLE_ENDIAN).putShort(sampleValue).array();
 
         // последовательно записываем полученные байты
         // в место, которое соответствует указанному
