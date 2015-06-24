@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" styleClass="background" stylesheets="@../css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.MessageController">
+   <bottom>
+      <Button fx:id="buttonOKMessage" cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#buttonProcessing" prefWidth="70.0" text="OK" BorderPane.alignment="CENTER">         <font>
+            <Font size="16.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <center>
+      <Label fx:id="labelMessage" alignment="CENTER" contentDisplay="CENTER" prefHeight="180.0" prefWidth="380.0" styleClass="label3" text="Message Label" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+   </center>
+</BorderPane>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="oracle_ice">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/help/oracle_ice.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

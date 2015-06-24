@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ohj">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/help/ohj.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

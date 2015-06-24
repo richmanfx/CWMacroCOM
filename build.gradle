@@ -1,0 +1,71 @@
+apply plugin:'java'
+apply plugin: 'application'
+// apply plugin: 'war'
+
+mainClassName = 'ru.r5am.Main'
+[ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+//compileJava.options.encoding = 'UTF-8'
+//jarDependenciesLib = 'help'
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()	// Центральный репозиторий Maven
+}
+
+
+/*
+gradle.taskGraph.whenReady
+{ taskGraph ->
+def classpath = sourceSets.main.compileClasspath.collect
+{
+	jarDependenciesLib + File.separator + it.name
+}.join(', ')
+jar.manifest.attributes 'Main-Class': mainclass, 'Class-Path': classpath
+
+}
+*/
+
+jar {
+	manifest 
+	{
+         attributes("Generated-By": "Gradle",
+         	    "Main-Class": mainClassName, 
+		    "Built-By": "Александр Ящук (Aleksandr Jashhuk), R5AM",
+		    "Class-Path": "help")
+        }
+
+                          
+
+	baseName = 'cwmacrocom'
+		// archiveName = 'exampleProjectOHJ.jar'
+    		// destinationDir = file("${buildDir}/jars")
+	version =  '1.0'
+}
+
+
+task wrapper(type: Wrapper) {
+    				gradleVersion = '2.4'
+}
+
+
+task copyFiles(type: Copy) {
+                                // Откуда
+    				from 'resources'		
+    				
+				// Куда
+				into 'build'
+
+				// Что
+    				include '**/*.xml', '**/*.txt', '**/*.properties'
+}
+
+
+dependencies {
+    		compile "junit:junit:3.8.2"
+	
+		// Local libraries
+	        compile fileTree(dir: 'src/main/resources/help', include: ['*.jar'])
+            	compile fileTree(dir: 'src/main/resources/library', include: ['*.jar'])
+
+}

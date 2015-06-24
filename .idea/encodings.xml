@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/classes/COMPort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/classes/MessageWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/classes/PlayMacro.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/classes/Sample.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/classes/WaveFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/controllers/AboutController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/controllers/ConfigController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/controllers/EditController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/controllers/MessageController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/filework/datafilework/ReadDataFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/filework/inifilework/ReadIniFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/filework/inifilework/WriteIniFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/filework/macrosfilework/ReadMacrosFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/r5am/filework/macrosfilework/WriteMacrosFile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/todo.txt" charset="UTF-8" />
+  </component>
+</project>

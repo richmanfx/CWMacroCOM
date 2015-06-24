@@ -1,0 +1,4 @@
+# Ignore al files in folder ./build
+/build/*
+# Ignore al files in folder ./out
+/out
