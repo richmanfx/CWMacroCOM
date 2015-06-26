@@ -1,4 +1,8 @@
-# Ignore al files in folder ./build
+# all files in folder ./build
 /build/*
-# Ignore al files in folder ./out
-/out
+
+# all files in folder ./out
+/out/*
+
+# todo.txt
+/todo.txt

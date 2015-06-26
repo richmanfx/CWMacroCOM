@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="share">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/resources/help/share.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/resources/library/share.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

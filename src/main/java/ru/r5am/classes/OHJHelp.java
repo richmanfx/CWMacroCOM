@@ -3,7 +3,8 @@ package ru.r5am.classes;
 import oracle.help.Help;
 import oracle.help.library.helpset.HelpSet;
 import oracle.help.library.helpset.HelpSetParseException;
-import ru.r5am.controllers.MainController;
+
+import java.net.URL;
 
 /**
  * Created by Aleksandr Jashhuk (R5AM) on 21.06.2015.
@@ -16,14 +17,26 @@ public class OHJHelp {
         String helpsetFileName = "../../../../../resources/main/help/cwmacrocom.hs"; // HelpSet file
         String firstHelpTopic = "topic1";   		  // Topic for first showing
 
-        Help myHelp = new Help();
+        URL helpsetURL = OHJHelp.class.getClassLoader().getResource(helpsetFileName);
+        System.out.println("showHelp -> *.hs: " + helpsetURL);
 
+        // Посмотрим путь, откуда мы стартуем
+        ApplicationStartUpPath startUpPath = new ApplicationStartUpPath();
+        try {
+            System.out.println("startUpPath: "
+                    + startUpPath.getApplicationStartUp());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Help myHelp = new Help();
+        Help.setHelpEncoding("UTF-8");
         try {
             // Possible variant N1
-             HelpSet myHelpSet = new HelpSet(MainController.class, helpsetFileName);
+           //  HelpSet myHelpSet = new HelpSet(MainController.class, helpsetFileName);
 
             // Possible variant N2
-           // HelpSet myHelpSet = new HelpSet(getClass().getResource(helpsetFileName));
+            HelpSet myHelpSet = new HelpSet(getClass().getResource(helpsetFileName));
 
             myHelp.addBook(myHelpSet);
             myHelp.showNavigatorWindow();

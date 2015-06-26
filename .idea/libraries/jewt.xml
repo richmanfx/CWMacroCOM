@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="jewt">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/resources/help/jewt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/resources/library/jewt.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

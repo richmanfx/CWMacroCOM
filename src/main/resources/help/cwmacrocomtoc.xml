@@ -1,15 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <toc>
-<tocitem text="CWMacrosCOM">
-	<tocitem text="��������">
-		<tocitem target="topic1" text="��� ���� ��� ���������"></tocitem>
-    		<tocitem target="topic2" text="��� ������"></tocitem>
-  	</tocitem>
-  	<tocitem text="��������� � ������">
-    		<tocitem target="topic3" text="��������� ����������"></tocitem>
-      		<tocitem target="topic4" text="��������� ������"></tocitem>
-    	</tocitem>
-	<tocitem text="������ � ����������">
-    		<tocitem target="topic5" text="����� �� ���������"></tocitem>
-    	</tocitem>
-</tocitem>
+	<tocitem text="CWMacrosCOM">
+		<tocitem text="Введение">
+			<tocitem target="topic1" text="Для кого эта программа"></tocitem>
+			<tocitem target="topic2" text="Что нового"></tocitem>
+		</tocitem>
+		<tocitem text="Приступая к работе">
+			<tocitem target="topic3" text="Системные требования"></tocitem>
+			<tocitem target="topic4" text="Получение помощи"></tocitem>
+		</tocitem>
+		<tocitem text="Работа с программой">
+			<tocitem target="topic5" text="Выход из программы"></tocitem>
+		</tocitem>
+	</tocitem>
 </toc>

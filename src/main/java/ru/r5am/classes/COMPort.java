@@ -5,7 +5,7 @@ import jssc.SerialPortException;
 import jssc.SerialPortList;
 
 /**
- * Created by Asus on 09.05.2015.
+ * Created by Aleksandr Jashhuk (R5AM) on 09.05.2015.
  */
 
 public class COMPort {

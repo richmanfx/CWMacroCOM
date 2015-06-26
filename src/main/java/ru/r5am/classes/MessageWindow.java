@@ -13,7 +13,7 @@ import ru.r5am.controllers.MessageController;
 import java.io.IOException;
 
 /**
- * Created by Asus on 14.05.2015.
+ * Created by Aleksandr Jashhuk (R5AM) on 14.05.2015.
  */
 public class MessageWindow {
 

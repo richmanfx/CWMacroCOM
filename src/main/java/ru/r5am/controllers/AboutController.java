@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /**
- * Created by Asus on 07.05.2015.
+ * Created by Aleksandr Jashhuk (R5AM) on 07.05.2015.
  */
 public class AboutController {
 

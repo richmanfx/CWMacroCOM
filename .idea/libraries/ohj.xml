@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="ohj">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/resources/help/ohj.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/resources/library/ohj.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

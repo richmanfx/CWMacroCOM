@@ -10,7 +10,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 
 /**
- * Created by alien
+ * Created by alien :-)
  */
 
 public class WaveFile {

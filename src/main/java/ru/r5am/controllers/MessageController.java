@@ -11,7 +11,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 /**
- * Created by Asus on 14.05.2015.
+ * Created by Aleksandr Jashhuk (R5AM) on 14.05.2015.
  */
 public class MessageController {
 

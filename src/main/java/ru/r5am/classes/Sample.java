@@ -1,7 +1,7 @@
 package ru.r5am.classes;
 
 /**
- * Created by Asus on 31.05.2015.
+ * Created by Aleksandr Jashhuk (R5AM) on 31.05.2015.
  */
 
 public class Sample {

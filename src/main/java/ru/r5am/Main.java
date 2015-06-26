@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import ru.r5am.classes.ApplicationStartUpPath;
+
+import java.net.URL;
 
 public class Main extends Application {
 
@@ -25,6 +28,19 @@ public class Main extends Application {
         String programTitle = "CWMacroCOM";
 
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlMainForm));
+
+            // Посмотрим путь до файла
+            URL configURL = Main.class.getClassLoader().getResource(fxmlMainForm);
+            System.out.println(configURL);
+
+            // Посмотрим путь, откуда мы стартуем
+            ApplicationStartUpPath startUpPath = new ApplicationStartUpPath();
+            try {
+                System.out.println("startUpPath: "
+                    + startUpPath.getApplicationStartUp());
+            } catch (Exception e) {
+                e.printStackTrace();
+              }
 
             primaryStage.setTitle(programTitle);
 

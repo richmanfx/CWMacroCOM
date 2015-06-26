@@ -32,7 +32,7 @@ jar {
          attributes("Generated-By": "Gradle",
          	    "Main-Class": mainClassName, 
 		    "Built-By": "Александр Ящук (Aleksandr Jashhuk), R5AM",
-		    "Class-Path": "help")
+		    "Class-Path": "library/help-share.jar library/jewt.jar library/ohj.jar library/oracle_ice.jar library/share.jar library/jssc-2.8.0.jar library/nproperty-1.4.jar")
         }
 
                           
@@ -51,13 +51,13 @@ task wrapper(type: Wrapper) {
 
 task copyFiles(type: Copy) {
                                 // Откуда
-    				from 'resources'		
+    				from 'src/main/resources/'		
     				
 				// Куда
-				into 'build'
+				into 'build/libs/'
 
 				// Что
-    				include '**/*.xml', '**/*.txt', '**/*.properties'
+    				include '**/*.fxml', '**/*.css', '**/*.dat', '**/*.xml', '**/*.hs', '**/*.map', '**/*.jar', '**/*.html', '**/*.png', '**/*.jpg'
 }
 
 

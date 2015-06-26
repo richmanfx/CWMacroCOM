@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * Created by Asus on 12.05.2015.
+ * Created by Aleksandr Jashhuk (R5AM) on 12.05.2015.
  */
 
 public class ConfigController {
