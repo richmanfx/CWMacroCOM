@@ -7,13 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="685.0" styleClass="background" stylesheets="@../css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.AboutController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="685.0" styleClass="background" stylesheets="/css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.AboutController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
             <ImageView fitHeight="265.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../images/ham-ezhik-2.jpg" />
+                  <Image url="/images/ham-ezhik-2.jpg" />
                </image>
                <BorderPane.margin>
                   <Insets left="20.0" right="20.0" />

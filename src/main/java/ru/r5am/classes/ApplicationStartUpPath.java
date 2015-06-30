@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created by Aleksandr Jashhuk (R5AM) on 25.06.2015.
+ * Created by alien on 25.06.2015.
  */
 
 public class ApplicationStartUpPath {

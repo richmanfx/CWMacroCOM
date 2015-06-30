@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.EditController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.EditController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="73.0">
          <children>
@@ -34,7 +34,7 @@
          <children>
             <AnchorPane>
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="@../css/cwmacrocom.css" text="F1" AnchorPane.leftAnchor="0.0">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="/css/cwmacrocom.css" text="F1" AnchorPane.leftAnchor="0.0">
                      <padding>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
@@ -42,7 +42,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldF1" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="@../css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                  <TextField fx:id="textFieldF1" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="/css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -54,7 +54,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="@../css/cwmacrocom.css" text="F2" AnchorPane.leftAnchor="0.0">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="/css/cwmacrocom.css" text="F2" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -62,7 +62,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="textFieldF2" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="@../css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                  <TextField fx:id="textFieldF2" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="/css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -74,7 +74,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="@../css/cwmacrocom.css" text="F3" AnchorPane.leftAnchor="0.0">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="/css/cwmacrocom.css" text="F3" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -82,7 +82,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="textFieldF3" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="@../css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                  <TextField fx:id="textFieldF3" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="/css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -94,7 +94,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="@../css/cwmacrocom.css" text="F4" AnchorPane.leftAnchor="0.0">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="/css/cwmacrocom.css" text="F4" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -102,7 +102,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="textFieldF4" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="@../css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                  <TextField fx:id="textFieldF4" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="/css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -114,7 +114,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="@../css/cwmacrocom.css" text="F5" AnchorPane.leftAnchor="0.0">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="/css/cwmacrocom.css" text="F5" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -122,7 +122,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="textFieldF5" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="@../css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                  <TextField fx:id="textFieldF5" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="/css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -134,7 +134,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="@../css/cwmacrocom.css" text="F6" AnchorPane.leftAnchor="0.0">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="label2" stylesheets="/css/cwmacrocom.css" text="F6" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -142,7 +142,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="textFieldF6" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="@../css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
+                  <TextField fx:id="textFieldF6" layoutX="52.0" layoutY="13.0" prefHeight="32.0" styleClass="textfield" stylesheets="/css/cwmacrocom.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0">
                      <font>
                         <Font size="16.0" />
                      </font>

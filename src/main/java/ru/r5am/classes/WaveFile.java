@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class WaveFile {
 
-    private int SHORT_SIZE = 2;       // Два байта => 16 бит
+    int SHORT_SIZE = 2;       // Два байта => 16 бит
     public final int NOT_SPECIFIED = -1;
     private int sampleSize = NOT_SPECIFIED;
     private long framesCount = NOT_SPECIFIED;

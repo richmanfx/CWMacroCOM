@@ -1,26 +1,10 @@
-/******************************************************************/
-//
-//      For create *-all.jar type "gradlew.bat ShadowJar"
-//
-//
-/******************************************************************/
 apply plugin:'java'
 apply plugin: 'application'
-apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'gradle-one-jar'
 
 mainClassName = 'ru.r5am.Main'
 [ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
 //jarDependenciesLib = 'help'
-
-
-buildscript {
-  repositories { jcenter() }
-  dependencies {
-    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.1'
-  }
-}
-
-
 
 repositories {
 	      mavenLocal()
@@ -32,7 +16,18 @@ task wrapper(type: Wrapper) {
 }
 
 
+/*
+gradle.taskGraph.whenReady {
+			    taskGraph ->
+			    def classpath = sourceSets.main.compileClasspath.collect {
+										      jarDependenciesLib + File.separator + it.name
+			                    }.join(', ')
+                                            jar.manifest.attributes 'Main-Class': mainclass, 'Class-Path': classpath
+}
+*/
+
 sourceSets {
+    //intTest
     sourceSet.output.resourcesDir = 'build/libs/'
 }
 
@@ -68,11 +63,42 @@ task copyFiles(type: Copy) {
 
 jar.dependsOn(copyFiles)
 
+task FunJar(type: OneJar) {
+    mainClass = mainClassName
+    archiveName = 'funcwmacrocom.jar'
+    mergeManifestFromJar = false
+    additionalDir = file('src/main/resources/')
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+             
+/*
+///////////////////////////////////////////////////////
+task addImages {
+    def css = file("$buildDir/resources/main")
+    outputs.dir css
+    doLast {
+        css.mkdirs()
+    }
+}
+ 
+applicationDistribution.from(addImages) {
+    into "bin/src/main/resources"
+}
+///////////////////////////////////////////////////////
+*/
+
 
 
 dependencies {
     		compile "junit:junit:3.8.2"
-		compile 'org.codehaus.groovy:groovy-all:2.1.5'
 
 		// Local libraries
             	compile fileTree(dir: 'src/main/resources/library', include: ['*.jar'])

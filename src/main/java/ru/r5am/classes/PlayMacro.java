@@ -1,5 +1,6 @@
 package ru.r5am.classes;
 
+import ru.r5am.Main;
 import ru.r5am.filework.datafilework.ReadDataFile;
 import ru.r5am.filework.inifilework.ReadIniFile;
 
@@ -297,7 +298,7 @@ public class PlayMacro {
 
         System.out.println("Tone: " + dotSample.getTone());
         System.out.println("Ramp: " + dotSample.getRamp());
-        System.out.println("Длительность, мс: " + dotSample.getDuration());
+        System.out.println("Duration, ms: " + dotSample.getDuration());
         dotSample.generateSample();
         dashSample.generateSample();
         dotSamples = dotSample.getSamples();        // Массив сэмпла
@@ -310,10 +311,14 @@ public class PlayMacro {
         int samplingFrequency = 44100;
 
         WaveFile dot_wf = new WaveFile(samplingSize, samplingFrequency, mono, dotSamples);
-        dot_wf.saveFile(new File("C:/Users/Asus/dot.wav"));
+        dot_wf.saveFile(new File(Main.pathUserHome +
+                                 System.getProperty("file.separator") +
+                                "dot.wav"));
 
         WaveFile dash_wf = new WaveFile(samplingSize, samplingFrequency, mono, dashSamples);
-        dash_wf.saveFile(new File("C:/Users/Asus/dash.wav"));
+        dash_wf.saveFile(new File(Main.pathUserHome +
+                                  System.getProperty("file.separator") +
+                                  "dash.wav"));
 
         byte[] dotSamplesByte = new byte[dotSamples.length * 2];
         for (int i = 0, j = 0; i < dotSamples.length; i++, j += 2) {
@@ -330,7 +335,9 @@ public class PlayMacro {
         // Вопроизводим WAV-файл
         try {
 
-            File soundFile = new File("C:/Users/Asus/dot2.wav");
+            File soundFile = new File(Main.pathUserHome +
+                                      System.getProperty("file.separator") +
+                                     "dot2.wav");
             //Получаем AudioInputStream
             //Вот тут могут полететь IOException и UnsupportedAudioFileException
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
@@ -358,7 +365,7 @@ public class PlayMacro {
     public static void TestWaveFile() throws Exception {
 
         // создание одноканального wave-файла из массива целых чисел
-        System.out.println("Создание моно-файла...");
+        System.out.println("Creating mono-file...");
         short samplingSize = 2;
         int quantitySamples = 10000;
         int frequency = 700;
@@ -399,9 +406,10 @@ public class PlayMacro {
 
         final int mono = 1;
         WaveFile wf = new WaveFile(samplingSize, samplingFrequency, mono, samples);
-        wf.saveFile(new File("C:/Users/Asus/testwav1.wav"));
+        wf.saveFile(new File(Main.pathUserHome +
+                             System.getProperty("file.separator") +
+                             "testwav1.wav"));
         wf.getAudioFormat();
-        System.out.println("Продолжительность моно-файла: " + wf.getDurationTime() + " сек.");
 
         // Создание стерео-файла
 //        System.out.println("Создание стерео-файла...");

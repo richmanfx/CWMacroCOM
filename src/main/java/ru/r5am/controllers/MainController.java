@@ -8,13 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.image.Image;
-
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import oracle.help.library.helpset.HelpSetParseException;
 import ru.r5am.Main;
+import ru.r5am.classes.COMPort;
 import ru.r5am.classes.OHJHelp;
 import ru.r5am.classes.PlayMacro;
 import ru.r5am.filework.datafilework.ReadDataFile;
@@ -23,12 +23,14 @@ import ru.r5am.filework.macrosfilework.ReadMacrosFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-
-import static ru.r5am.classes.COMPort.testPORT;
 
 
 public class MainController {
+
+    // Объект Help-a
+    OHJHelp MyHelp = new OHJHelp();
 
     @FXML private Label labelF1;
     @FXML private Label labelF2;
@@ -53,6 +55,8 @@ public class MainController {
 
         // Считать CW сигналы из DAT-файла
         new ReadDataFile();
+
+
     }
 
 
@@ -131,7 +135,7 @@ public class MainController {
     // Обработка кнопок клавиатуры (нажатия мышкой обрабатываются отдельно!!!)
     @FXML
     private void HBoxOnKeyPressed(KeyEvent keyEvent) throws Exception {
-        System.out.println("Нажата key: " + keyEvent.getCode());
+        System.out.println("Pressed key: " + keyEvent.getCode());
         switch (keyEvent.getCode()) {
 
             case F1:
@@ -164,9 +168,10 @@ public class MainController {
             case F6:
                 // PlayMacro.playMacro(labelF6.getText());
                 // Список доступных СОМ-портов
-//                listCOMPorts();
+                COMPort MyPort = new COMPort();
+                MyPort.listCOMPorts();
                 // Тестики :-)
-                testPORT();
+                MyPort.testPORT();
 
                 buttonF6.requestFocus();
                 break;
@@ -207,8 +212,9 @@ public class MainController {
 
             case "buttonHelp":
                 // Запускаем OHJ
+
+
                 try {
-                    OHJHelp MyHelp = new OHJHelp();
                     MyHelp.showHelp();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -221,6 +227,7 @@ public class MainController {
                 break;
 
             case "buttonExit":
+                MyHelp.disposeHelp();
                 // Вызываем метод закрытия текущего окна
                 actionClose(actionEvent);
                 break;
@@ -247,10 +254,11 @@ public class MainController {
 
             case "buttonF6":
                 PlayMacro.playMacro(labelF6.getText());
-                testPORT();
+                new COMPort().testPORT();
                 break;
 
             case "buttonOkAbout":
+
                 // Вызываем метод закрытия текущего окна
                 actionClose(actionEvent);
                 break;
@@ -261,13 +269,25 @@ public class MainController {
     // Запускаем форму редактирования параметров
     private void actionConfig(ActionEvent actionEvent) {
 
-        String fxmlConfigForm = "fxml/config.fxml";
+        String fxmlConfigForm = "/fxml/config.fxml";
         int maximumWindowWidth = 600;           // Pixels
         int minimumWindowHeight = 600;
 
         try {
+            Parent root;
+            InputStream configFxmlStream = getClass().getResourceAsStream(fxmlConfigForm);
+
+            if (configFxmlStream != null) {
+//                System.out.println("configFxml Stream: " + configFxmlStream);
+                FXMLLoader loader = new FXMLLoader();
+                root = loader.load(configFxmlStream);
+            } else {
+                System.err.println("Couldn't find file: " + fxmlConfigForm);
+                return;
+            }
+
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlConfigForm));
+//            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlConfigForm));
             stage.setTitle("CWMacroCOM.  Редактирование параметров.");
             stage.setMaxWidth(maximumWindowWidth);
             stage.setMinHeight(minimumWindowHeight);
@@ -290,13 +310,26 @@ public class MainController {
     // Запускаем форму редактирования макросов
     private void actionEdit(ActionEvent actionEvent) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException {
 
-        String fxmlEditForm ="fxml/editing.fxml";
+        String fxmlEditForm ="/fxml/editing.fxml";
         int maximumWindowWidth = 600;           // Pixels
         int minimumWindowHeight = 400;
 
         try {
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlEditForm));
+//            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlEditForm));
+            Parent root;
+
+            InputStream editFxmlStream = getClass().getResourceAsStream(fxmlEditForm);
+
+            if (editFxmlStream != null) {
+//                 System.out.println("editFxml Stream: " + editFxmlStream);
+                FXMLLoader loader = new FXMLLoader();
+                root = loader.load(editFxmlStream);
+            } else {
+                System.err.println("Couldn't find file: " + fxmlEditForm);
+                return;
+            }
+
             stage.setTitle("CWMacroCOM.  Редактирование макросов.");
             stage.setMaxWidth(maximumWindowWidth);
             stage.setMinHeight(minimumWindowHeight);
@@ -319,14 +352,28 @@ public class MainController {
 
     private void showAboutWindow(ActionEvent actionEvent) {
 
-        String fxmlAboutForm = "fxml/about.fxml";
+        String fxmlAboutForm = "/fxml/about.fxml";
         int maximumWindowWidth = 685;           // Pixels
         int minimumWindowHeight = 300;
 
         try {
+            Parent root;
+
+            InputStream aboutFxmlStream = getClass().getResourceAsStream(fxmlAboutForm);
+
+            if (aboutFxmlStream != null) {
+//                System.out.println("aboutFxml Stream: " + aboutFxmlStream);
+                FXMLLoader loader = new FXMLLoader();
+                root = loader.load(aboutFxmlStream);
+            } else {
+                System.err.println("Couldn't find file: " + fxmlAboutForm);
+                return;
+            }
+
+
             // TODO: не создавать каждый раз объекты эти при нажатии, а только показывать и скрывать
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlAboutForm));
+//            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlAboutForm));
             stage.setTitle("CWMacroCOM.  О программе.");
             stage.setMaxWidth(maximumWindowWidth);
             stage.setMinHeight(minimumWindowHeight);

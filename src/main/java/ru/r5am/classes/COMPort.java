@@ -10,7 +10,7 @@ import jssc.SerialPortList;
 
 public class COMPort {
 
-    public static void testPORT() {
+    public void testPORT() {
         String nameCOMPort = "COM6";        // COM6
                                             // PTT line - RTS
                                             // Key line - DTR
@@ -19,8 +19,9 @@ public class COMPort {
         int dataBits = 8;
         int stopBits = 1;
         int parity = 0;
+
         // Массив для статусов порта
-        int[] status = new int[4];
+        //  int[] status = new int[4];
 
         // Экземпляр порта
         SerialPort serialPort = new SerialPort(nameCOMPort);
@@ -83,11 +84,11 @@ public class COMPort {
 
 
 
-    public static void listCOMpotrs() {
+    public void listCOMPorts() {
         //Метод getPortNames() возвращает массив строк. Элементы массива уже отсортированы.
         String[] portNames = SerialPortList.getPortNames();
-        for(int i = 0; i < portNames.length; i++){
-            System.out.println(portNames[i]);
+        for (String portName : portNames) {
+            System.out.println(portName);
         }
 //        System.out.println(SerialNativeInterface.getOsType());
     }

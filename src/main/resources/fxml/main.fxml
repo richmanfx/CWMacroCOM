@@ -8,7 +8,7 @@
 
 <HBox minHeight="300.0" minWidth="600.0" onKeyPressed="#HBoxOnKeyPressed" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.MainController">
    <children>
-      <AnchorPane prefHeight="330.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/cwmacrocom.css" HBox.hgrow="ALWAYS">
+      <AnchorPane prefHeight="330.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" HBox.hgrow="ALWAYS">
          <children>
             <VBox prefHeight="52.0" prefWidth="445.0" AnchorPane.leftAnchor="0.0">
                <children>

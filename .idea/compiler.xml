@@ -15,6 +15,7 @@
       <entry name="!?*.clj" />
       <entry name="*.css" />
       <entry name="*.dat" />
+      <entry name="*.fxml" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
@@ -28,8 +29,8 @@
         <module name="cwmacrocom" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7">
-      <module name="cwmacrocom" target="1.7" />
+    <bytecodeTargetLevel>
+      <module name="cwmacrocom" target="" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

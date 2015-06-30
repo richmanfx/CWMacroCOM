@@ -18,9 +18,9 @@ public class MessageController {
     @FXML private Label labelMessage;
 
     public static String messageText;
-//
-//    @FXML
-//    private Button buttonOKMessage;
+
+    @FXML
+    private Button buttonOKMessage;
 
     @FXML private void initialize() {
         // Вывод сообщения

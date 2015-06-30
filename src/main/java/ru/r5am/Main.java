@@ -6,9 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import ru.r5am.classes.ApplicationStartUpPath;
 
-import java.net.URL;
+import java.io.InputStream;
 
 public class Main extends Application {
 
@@ -18,44 +17,56 @@ public class Main extends Application {
     final public static String nameMacrosFile = ".cwmacrocom/cwmacrocom.mks";         // файл с макросами
     final public static String pathUserHome = System.getProperty("user.home");        // папка пользователя
 
-    final public static String programIcon = "images/cwmacrocom.png";                 // Иконка приложения
+    final public static String programIcon = "/images/cwmacrocom.png";                 // Иконка приложения
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
-        String fxmlMainForm = "fxml/main.fxml";
+        String fxmlMainForm = "/fxml/main.fxml";
         String programTitle = "CWMacroCOM";
 
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlMainForm));
+        // Максимальные и минимальные размеры главного окна
+        int maximumWindowHeight = 630;       // Pixels
+        int maximumWindowWidth = 800;
+        int minimumWindowHeight = 130;
+        int minimumWindowWidth = 290;
 
-            // Посмотрим путь до файла
-            URL configURL = Main.class.getClassLoader().getResource(fxmlMainForm);
-            System.out.println(configURL);
+        Parent root;
 
-            // Посмотрим путь, откуда мы стартуем
-            ApplicationStartUpPath startUpPath = new ApplicationStartUpPath();
-            try {
-                System.out.println("startUpPath: "
-                    + startUpPath.getApplicationStartUp());
-            } catch (Exception e) {
-                e.printStackTrace();
-              }
+        InputStream mainFxmlStream = getClass().getResourceAsStream(fxmlMainForm);
 
-            primaryStage.setTitle(programTitle);
+        if (mainFxmlStream != null) {
+            FXMLLoader loader = new FXMLLoader();
+            root = loader.load(mainFxmlStream);
+        } else {
+            System.err.println("Couldn't find file: " + fxmlMainForm);
+            return;
+        }
 
-            // Минимальные и максимальные размеры главного окна
-            primaryStage.setMinWidth(290);
-            primaryStage.setMinHeight(130);
-            primaryStage.setMaxWidth(800);
-            primaryStage.setMaxHeight(630);
+//        // Посмотрим путь, откуда мы стартуем
+//        ApplicationStartUpPath startUpPath = new ApplicationStartUpPath();
+//        try {
+//            System.out.println("startUpPath: " + startUpPath.getApplicationStartUp());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-            // Установка иконки приложения
-            primaryStage.getIcons().add(new Image(programIcon));
 
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+        primaryStage.setTitle(programTitle);
+
+        // Установка размеров главной формы
+        primaryStage.setMinWidth(minimumWindowWidth);
+        primaryStage.setMinHeight(minimumWindowHeight);
+        primaryStage.setMaxWidth(maximumWindowWidth);
+        primaryStage.setMaxHeight(maximumWindowHeight);
+
+        // Установка иконки приложения
+        primaryStage.getIcons().add(new Image(programIcon));
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {

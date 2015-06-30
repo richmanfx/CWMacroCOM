@@ -84,6 +84,6 @@ public class Sample {
                     (((double) samples.length - (double) i) * deltaAmplitude));
         }
 
-        System.out.println("Количество отсчётов: " + quantitySamples);
+        System.out.println("Nhe number of counts: " + quantitySamples);
     }
 }
