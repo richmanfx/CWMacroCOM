@@ -4,5 +4,11 @@
 # all files in folder ./out
 /out/*
 
-# todo.txt
-/todo.txt
+todo.txt
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear

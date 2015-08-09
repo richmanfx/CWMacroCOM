@@ -12,5 +12,9 @@
 		<tocitem text="Работа с программой">
 			<tocitem target="topic5" text="Выход из программы"></tocitem>
 		</tocitem>
+		<tocitem text="Лицензия">
+			<tocitem target="topic6" text="Лицензия BSD. Русский язык."></tocitem>
+			<tocitem target="topic7" text="Лицензия BSD. Английский язык"></tocitem>
+		</tocitem>
 	</tocitem>
 </toc>

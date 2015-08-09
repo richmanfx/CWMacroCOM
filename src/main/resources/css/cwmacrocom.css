@@ -15,6 +15,8 @@
 /*	-fx-padding: 5 22 5 22;		*/
 	-fx-border-color: #00ffff;
 	-fx-border-width: 1;
+/*	-fx-font-family: Consolas;	*/
+	-fx-font-size: 12pt;
 }
 
 .button:hover {

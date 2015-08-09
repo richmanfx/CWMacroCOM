@@ -5,22 +5,108 @@
     <output-test url="file://$MODULE_DIR$/build/classes/test" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/sourceSet/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/sourceSet/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: junit:junit:3.8.2" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:3.8.2" level="project" />
-    <orderEntry type="library" name="jssc-2.8.0" level="project" />
-    <orderEntry type="library" name="nproperty-1.4" level="project" />
-    <orderEntry type="library" name="help-share" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: junit:junit:3.8.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.codehaus.groovy:groovy-all:2.1.5" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: nproperty-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/nproperty-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: help-share">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/help-share.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: oracle_ice">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/oracle_ice.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: jewt">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/jewt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: jssc-2.8.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/jssc-2.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: share">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/share.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Gradle: ohj">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/library/ohj.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="jewt" level="project" />
-    <orderEntry type="library" name="ohj" level="project" />
+    <orderEntry type="library" name="nproperty-1.4" level="project" />
+    <orderEntry type="library" name="jssc-2.8.0" level="project" />
     <orderEntry type="library" name="oracle_ice" level="project" />
+    <orderEntry type="library" name="help-share" level="project" />
+    <orderEntry type="library" name="ohj" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:3.8.2" level="project" />
     <orderEntry type="library" name="share" level="project" />
+    <orderEntry type="module-library">
+      <library name="JUnit4">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/hamcrest-core-1.3.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/hamcrest-library-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

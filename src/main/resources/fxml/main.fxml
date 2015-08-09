@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox minHeight="300.0" minWidth="600.0" onKeyPressed="#HBoxOnKeyPressed" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.MainController">
+<HBox minHeight="300.0" minWidth="600.0" onKeyPressed="#HBoxOnKeyPressed" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.MainController">
    <children>
       <AnchorPane prefHeight="330.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" HBox.hgrow="ALWAYS">
          <children>
@@ -118,7 +118,7 @@
             </VBox>
             <VBox AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="buttonEdit" minWidth="135.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Редактировать" textAlignment="CENTER">
+                  <Button fx:id="buttonEdit" minWidth="150.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Редактировать" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -126,7 +126,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonOptions" minWidth="135.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Настройки" textAlignment="CENTER">
+                  <Button fx:id="buttonOptions" minWidth="150.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Настройки" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" right="20.0" />
                      </VBox.margin>
@@ -134,7 +134,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonHelp" minWidth="135.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Помощь" textAlignment="CENTER">
+                  <Button fx:id="buttonHelp" minWidth="150.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Помощь" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" right="20.0" />
                      </VBox.margin>
@@ -142,7 +142,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonAbout" minWidth="135.0" mnemonicParsing="false" onAction="#buttonProcessing" text="О программе" textAlignment="CENTER">
+                  <Button fx:id="buttonAbout" minWidth="150.0" mnemonicParsing="false" onAction="#buttonProcessing" text="О программе" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" right="20.0" />
                      </VBox.margin>
@@ -150,7 +150,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonExit" cancelButton="true" minWidth="135.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Выход" textAlignment="CENTER">
+                  <Button fx:id="buttonExit" cancelButton="true" minWidth="150.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Выход" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" />
                      </VBox.margin>

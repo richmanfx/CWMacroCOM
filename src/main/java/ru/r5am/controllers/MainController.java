@@ -59,7 +59,9 @@ public class MainController {
 
     }
 
-
+    /**
+     * Считываем параметры из INI-файла
+     */
     private void readConfig() throws InvocationTargetException, NoSuchMethodException,
                                      InstantiationException, IOException, IllegalAccessException {
 
@@ -98,6 +100,9 @@ public class MainController {
             }
     }
 
+    /**
+     * Считываем макросы из MKS-файла
+     */
     private void readMacros() throws InvocationTargetException, NoSuchMethodException,
                                      InstantiationException, IOException, IllegalAccessException {
         // Существует ли MKS-файл с макросами?
@@ -119,7 +124,7 @@ public class MainController {
         }
     }
 
-    //    // Привязка переменных к компонентам в main.fxml
+    // Привязка переменных к компонентам в main.fxml
     @FXML private Button buttonEdit;
     @FXML private Button buttonOptions;
     @FXML private Button buttonHelp;
@@ -132,53 +137,59 @@ public class MainController {
     @FXML private Button buttonF5;
     @FXML private Button buttonF6;
 
-    // Обработка кнопок клавиатуры (нажатия мышкой обрабатываются отдельно!!!)
+    /**
+     * Обработка кнопок клавиатуры (нажатия мышкой обрабатываются отдельно!!!)
+     */
     @FXML
     private void HBoxOnKeyPressed(KeyEvent keyEvent) throws Exception {
-        System.out.println("Pressed key: " + keyEvent.getCode());
+//        System.out.println("Pressed key: " + keyEvent.getCode());
         switch (keyEvent.getCode()) {
 
             case F1:
-                PlayMacro.playMacro(labelF1.getText());
                 buttonF1.requestFocus();
+//                System.out.println("labelF1= " + labelF1.getText());
+                PlayMacro.playMacro(labelF1.getText());
                 break;
 
             case F2:
-                PlayMacro.playMacro(labelF2.getText());
                 buttonF2.requestFocus();
+                PlayMacro.playMacro(labelF2.getText());
                 break;
 
             case F3:
-                PlayMacro.playMacro(labelF3.getText());
                 buttonF3.requestFocus();
+                PlayMacro.playMacro(labelF3.getText());
                 break;
 
             case F4:
-                PlayMacro.playMacro(labelF4.getText());
                 buttonF4.requestFocus();
+                PlayMacro.playMacro(labelF4.getText());
                 break;
 
             case F5:
-//                PlayMacro.playMacro(labelF5.getText());
                 buttonF5.requestFocus();
+                PlayMacro.playMacro(labelF5.getText());
                 // PlayMacro.TestWaveFile();
-                PlayMacro.TestSample();
+//                PlayMacro.TestSample();
                 break;
 
             case F6:
-                // PlayMacro.playMacro(labelF6.getText());
-                // Список доступных СОМ-портов
-                COMPort MyPort = new COMPort();
-                MyPort.listCOMPorts();
-                // Тестики :-)
-                MyPort.testPORT();
-
                 buttonF6.requestFocus();
+                PlayMacro.playMacro(labelF6.getText());
+
+                // Список доступных СОМ-портов
+                    //COMPort MyPort = new COMPort();
+                    //MyPort.listCOMPorts();
+
+                // Тестики :-)
+                    //MyPort.testPORT();
                 break;
         }
     }
 
-    // Обработка нажатий мышкой на Buttons (клавиатура отдельно обрабатывается!)
+    /**
+     *  Обработка нажатий мышкой на Buttons (клавиатура отдельно обрабатывается!)
+     */
     public void buttonProcessing(ActionEvent actionEvent) throws InvocationTargetException,
             NoSuchMethodException,
             InstantiationException,
@@ -212,7 +223,6 @@ public class MainController {
 
             case "buttonHelp":
                 // Запускаем OHJ
-
 
                 try {
                     MyHelp.showHelp();
@@ -263,10 +273,12 @@ public class MainController {
                 actionClose(actionEvent);
                 break;
         }
-
     }
 
-    // Запускаем форму редактирования параметров
+    /**
+     * Запускаем форму редактирования параметров
+     * @param actionEvent
+     */
     private void actionConfig(ActionEvent actionEvent) {
 
         String fxmlConfigForm = "/fxml/config.fxml";
@@ -307,7 +319,10 @@ public class MainController {
 
     }
 
-    // Запускаем форму редактирования макросов
+    /**
+     *  Запускаем форму редактирования макросов
+     *  @param actionEvent
+     */
     private void actionEdit(ActionEvent actionEvent) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException {
 
         String fxmlEditForm ="/fxml/editing.fxml";
@@ -349,7 +364,10 @@ public class MainController {
     }
 
 
-
+    /**
+     * Запускаем модальное окно "О программе"
+     * @param actionEvent
+     */
     private void showAboutWindow(ActionEvent actionEvent) {
 
         String fxmlAboutForm = "/fxml/about.fxml";
@@ -391,14 +409,19 @@ public class MainController {
         }
     }
 
-    // Метод закрытия окна
+    /**
+     * Метод закрытия окна
+     * @param actionEvent
+     */
     public static void actionClose(ActionEvent actionEvent) {
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 
-    // Выводим макросы на лейблы Main формы
+    /**
+    * Выводим макросы на лейблы Main формы
+    */
     private void updateLabelsMainForm() {
         labelF1.setText(ReadMacrosFile.F1.toUpperCase());
         labelF2.setText(ReadMacrosFile.F2.toUpperCase());

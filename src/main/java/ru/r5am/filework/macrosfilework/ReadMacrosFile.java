@@ -7,22 +7,17 @@ import ru.r5am.Main;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-/**
- * Created by Asus on 12.05.2015.
+/*
+ * Created by Zoer on 12.05.2015.
  */
 
+@Cfg
 public class ReadMacrosFile {
-    @Cfg
     public static String F1 = "DefaultMacros F1";           // Макросы по умолчанию
-    @Cfg
     public static String F2 = "DefaultMacros F2";
-    @Cfg
     public static String F3 = "DefaultMacros F3";
-    @Cfg
     public static String F4 = "DefaultMacros F4";
-    @Cfg
     public static String F5 = "DefaultMacros F5";
-    @Cfg
     public static String F6 = "DefaultMacros F6";
 
     public ReadMacrosFile() throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException

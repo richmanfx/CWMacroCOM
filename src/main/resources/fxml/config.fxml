@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.ConfigController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.ConfigController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -17,12 +17,12 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldCWSpeed" layoutX="152.0" layoutY="10.0" prefHeight="32.0" prefWidth="50.0" styleClass="textfield">
+                  <TextField fx:id="textFieldCWSpeed" layoutX="170.0" layoutY="10.0" prefHeight="32.0" prefWidth="60.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="textFieldCaliberCWSpeed" layoutX="438.0" layoutY="10.0" prefHeight="32.0" prefWidth="60.0" styleClass="textfield" AnchorPane.rightAnchor="40.0">
+                  <TextField fx:id="textFieldCaliberCWSpeed" layoutX="438.0" layoutY="10.0" prefHeight="32.0" prefWidth="70.0" styleClass="textfield" AnchorPane.rightAnchor="40.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -65,17 +65,17 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldBits" layoutX="150.0" layoutY="10.0" prefHeight="32.0" prefWidth="50.0" styleClass="textfield">
+                  <TextField fx:id="textFieldBits" layoutX="170.0" layoutY="10.0" prefHeight="30.0" prefWidth="50.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="320.0" layoutY="15.0" styleClass="label2" text="Скорость порта">
+                  <Label layoutX="300.0" layoutY="15.0" styleClass="label2" text="Скорость порта">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldBaudRate" layoutX="450.0" layoutY="10.0" prefHeight="32.0" prefWidth="100.0" styleClass="textfield">
+                  <TextField fx:id="textFieldBaudRate" layoutX="460.0" layoutY="10.0" prefHeight="32.0" prefWidth="100.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -84,7 +84,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="50.0" prefWidth="600.0">
                <children>
-                  <CheckBox fx:id="checkBoxParity" layoutX="320.0" layoutY="15.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" styleClass="label2" text="Проверка чётности">
+                  <CheckBox fx:id="checkBoxParity" layoutX="300.0" layoutY="15.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" styleClass="label2" text="Проверка чётности">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -112,7 +112,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="radioButtonDTR" layoutX="230.0" layoutY="15.0" mnemonicParsing="false" selected="true" text="DTR">
+                  <RadioButton fx:id="radioButtonDTR" layoutX="250.0" layoutY="15.0" mnemonicParsing="false" selected="true" text="DTR">
                      <toggleGroup>
                         <ToggleGroup fx:id="radioGroup" />
                      </toggleGroup>
@@ -120,7 +120,7 @@
                         <Font size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radioButtonRTS" layoutX="320.0" layoutY="15.0" mnemonicParsing="false" text="RTS" toggleGroup="$radioGroup">
+                  <RadioButton fx:id="radioButtonRTS" layoutX="340.0" layoutY="15.0" mnemonicParsing="false" text="RTS" toggleGroup="$radioGroup">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -138,7 +138,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="50.0" prefWidth="600.0">
                <children>
-                  <TextField fx:id="textFieldDelayPTTtoCW" layoutX="350.0" layoutY="10.0" prefHeight="22.0" prefWidth="60.0" styleClass="textfield">
+                  <TextField fx:id="textFieldDelayPTTtoCW" layoutX="400.0" layoutY="10.0" prefHeight="22.0" prefWidth="60.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -157,7 +157,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldDelayCWtoPTT" layoutX="350.0" layoutY="10.0" prefHeight="22.0" prefWidth="60.0" styleClass="textfield">
+                  <TextField fx:id="textFieldDelayCWtoPTT" layoutX="400.0" layoutY="10.0" prefHeight="22.0" prefWidth="60.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>

@@ -2,4 +2,9 @@
 <map version="1.0">
 	<mapID target="topic1" url="topic1.html" />
 	<mapID target="topic2" url="topic2.html" />
+	<mapID target="topic3" url="topic3.html" />
+	<mapID target="topic4" url="topic4.html" />
+	<mapID target="topic5" url="topic5.html" />
+	<mapID target="topic6" url="topic6.html" />
+	<mapID target="topic7" url="topic7.html" />
 </map>

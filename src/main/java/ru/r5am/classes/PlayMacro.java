@@ -4,9 +4,6 @@ import ru.r5am.Main;
 import ru.r5am.filework.datafilework.ReadDataFile;
 import ru.r5am.filework.inifilework.ReadIniFile;
 
-import javax.sound.midi.MidiChannel;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.Synthesizer;
 import javax.sound.sampled.*;
 import java.io.File;
 
@@ -16,236 +13,200 @@ import java.io.File;
 
 public class PlayMacro {
 
+    // Длительности
+    static int dotDuration = ReadIniFile.caliberSpeedCW / ReadIniFile.speedCW;    // Длительность точки
+    static int dashDuration = 3 * dotDuration;                                    // Длительность тире
+
     // Работа макроса
-    public static void playMacro(String s) {
-        // System.out.println("Работает Макрос " + s);
+    public static void playMacro(String macrosText) {
+        // System.out.println("Работает Макрос " + macrosText);
 
-        // Расчёт скорости
-        int speedCaliber = 5800;                                 // Калибровочный коэффициент скорости CW
-        int dotDuration = speedCaliber / ReadIniFile.speedCW;    // Длительность точки
-        int dashDuration = 3 * dotDuration;                      // Длительность тире
 
-        for (int i = 0; i < s.length(); i++) {
-            //System.out.print(s.toCharArray()[i] + " ");
 
-            switch (s.toCharArray()[i]) {
+        // Пробежимся по символам макроса
+        for (int i = 0; i < macrosText.length(); i++) {
+            //System.out.print(macrosText.toCharArray()[i] + " ");
+
+            switch (macrosText.toCharArray()[i]) {
 
                 case '1':
 //                    System.out.print(ReadDataFile.cw1 + "|");
-                    playSymbol(ReadDataFile.cw1, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw1);
                     break;
 
                 case '2':
-//                    System.out.print(ReadDataFile.cw2 + "|");
-                    playSymbol(ReadDataFile.cw2, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw2);
                     break;
 
                 case '3':
-//                    System.out.print(ReadDataFile.cw3 + "|");
-                    playSymbol(ReadDataFile.cw3, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw3);
                     break;
 
                 case '4':
-//                    System.out.print(ReadDataFile.cw4 + "|");
-                    playSymbol(ReadDataFile.cw4, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw4);
                     break;
 
                 case '5':
-//                    System.out.print(ReadDataFile.cw5 + "|");
-                    playSymbol(ReadDataFile.cw5, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw5);
                     break;
 
                 case '6':
-//                    System.out.print(ReadDataFile.cw6 + "|");
-                    playSymbol(ReadDataFile.cw6, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw6);
                     break;
 
                 case '7':
-//                    System.out.print(ReadDataFile.cw7 + "|");
-                    playSymbol(ReadDataFile.cw7, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw7);
                     break;
 
                 case '8':
-//                    System.out.print(ReadDataFile.cw8 + "|");
-                    playSymbol(ReadDataFile.cw8, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw8);
                     break;
 
                 case '9':
-//                    System.out.print(ReadDataFile.cw9 + "|");
-                    playSymbol(ReadDataFile.cw9, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw9);
                     break;
 
                 case '0':
-//                    System.out.print(ReadDataFile.cw0 + "|");
-                    playSymbol(ReadDataFile.cw0, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cw0);
                     break;
 
                 case 'A':
-//                    System.out.print(ReadDataFile.cwA + "|");
-                    playSymbol(ReadDataFile.cwA, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwA);
                     break;
 
                 case 'B':
-//                    System.out.print(ReadDataFile.cwB + "|");
-                    playSymbol(ReadDataFile.cwB, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwB);
                     break;
 
                 case 'C':
-//                    System.out.print(ReadDataFile.cwC + "|");
-                    playSymbol(ReadDataFile.cwC, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwC);
                     break;
 
                 case 'D':
-//                    System.out.print(ReadDataFile.cwD + "|");
-                    playSymbol(ReadDataFile.cwD, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwD);
                     break;
 
                 case 'E':
-//                    System.out.print(ReadDataFile.cwE + "|");
-                    playSymbol(ReadDataFile.cwE, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwE);
                     break;
 
                 case 'F':
-//                    System.out.print(ReadDataFile.cwF + "|");
-                    playSymbol(ReadDataFile.cwF, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwF);
                     break;
 
                 case 'G':
-//                    System.out.print(ReadDataFile.cwG + "|");
-                    playSymbol(ReadDataFile.cwG, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwG);
                     break;
 
                 case 'H':
-//                    System.out.print(ReadDataFile.cwH + "|");
-                    playSymbol(ReadDataFile.cwH, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwH);
                     break;
 
                 case 'I':
-//                    System.out.print(ReadDataFile.cwI + "|");
-                    playSymbol(ReadDataFile.cwI, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwI);
                     break;
 
                 case 'J':
-//                    System.out.print(ReadDataFile.cwJ + "|");
-                    playSymbol(ReadDataFile.cwJ, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwJ);
                     break;
 
                 case 'K':
-//                    System.out.print(ReadDataFile.cwK + "|");
-                    playSymbol(ReadDataFile.cwK, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwK);
                     break;
 
                 case 'L':
-//                    System.out.print(ReadDataFile.cwL + "|");
-                    playSymbol(ReadDataFile.cwL, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwL);
                     break;
 
                 case 'M':
-//                    System.out.print(ReadDataFile.cwM + "|");
-                    playSymbol(ReadDataFile.cwM, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwM);
                     break;
 
                 case 'N':
-//                    System.out.print(ReadDataFile.cwN + "|");
-                    playSymbol(ReadDataFile.cwN, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwN);
                     break;
 
                 case 'O':
-//                    System.out.print(ReadDataFile.cwO + "|");
-                    playSymbol(ReadDataFile.cwO, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwO);
                     break;
 
                 case 'P':
-//                    System.out.print(ReadDataFile.cwP + "|");
-                    playSymbol(ReadDataFile.cwP, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwP);
                     break;
 
                 case 'Q':
-//                    System.out.print(ReadDataFile.cwQ + "|");
-                    playSymbol(ReadDataFile.cwQ, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwQ);
                     break;
 
                 case 'R':
-//                    System.out.print(ReadDataFile.cwR + "|");
-                    playSymbol(ReadDataFile.cwR, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwR);
                     break;
 
                 case 'S':
-//                    System.out.print(ReadDataFile.cwS + "|");
-                    playSymbol(ReadDataFile.cwS, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwS);
                     break;
 
                 case 'T':
-//                    System.out.print(ReadDataFile.cwT + "|");
-                    playSymbol(ReadDataFile.cwT, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwT);
                     break;
 
                 case 'U':
-//                    System.out.print(ReadDataFile.cwU + "|");
-                    playSymbol(ReadDataFile.cwU, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwU);
                     break;
 
                 case 'V':
-//                    System.out.print(ReadDataFile.cwV + "|");
-                    playSymbol(ReadDataFile.cwV, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwV);
                     break;
 
                 case 'W':
-//                    System.out.print(ReadDataFile.cwW + "|");
-                    playSymbol(ReadDataFile.cwW, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwW);
                     break;
 
                 case 'X':
-//                    System.out.print(ReadDataFile.cwX + "|");
-                    playSymbol(ReadDataFile.cwX, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwX);
                     break;
 
                 case 'Y':
-//                    System.out.print(ReadDataFile.cwY + "|");
-                    playSymbol(ReadDataFile.cwY, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwY);
                     break;
 
                 case 'Z':
-//                    System.out.print(ReadDataFile.cwZ + "|");
-                    playSymbol(ReadDataFile.cwZ, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwZ);
                     break;
 
 
                 case '?':
-//                    System.out.print(ReadDataFile.cwQUEST + "|");
-                    playSymbol(ReadDataFile.cwQUEST, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwQUEST);
                     break;
 
                 case '=':
-//                    System.out.print(ReadDataFile.cwEQUAL + "|");
-                    playSymbol(ReadDataFile.cwEQUAL, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwEQUAL);
                     break;
 
                 case '/':
-//                    System.out.print(ReadDataFile.cwSLASH + "|");
-                    playSymbol(ReadDataFile.cwSLASH, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwSLASH);
                     break;
 
                 case ' ':
-//                    System.out.print(" ");
-                    playSymbol(ReadDataFile.cwSPACE, dotDuration, dashDuration);
+                    playSymbol(ReadDataFile.cwSPACE);
                     break;
-
             }
-
-
         }
-        System.out.println("");
-
+        System.out.println();
     }
 
-    private static void playSymbol(String cwSymbol, int dot, int dash) {
+    // Играем символ
+    private static void playSymbol(String cwSymbol) {
+
         char[] dotDashMassive = cwSymbol.toCharArray();
 
-        for (int i = 0; i < dotDashMassive.length; i++) {
+//        System.out.println("Точка: " + dotDuration);
+//        System.out.println("Тире: " + dashDuration);
+
+        for (char aDotDashMassive : dotDashMassive) {
 //            System.out.print(datDashMassive [i]);
 
-            switch (dotDashMassive[i]) {
+            switch (aDotDashMassive) {
                 // Воспроизводим тире
                 case '-':
                     System.out.print("-");
@@ -254,7 +215,6 @@ public class PlayMacro {
                 // Воспроизводим точку
                 case '.':
                     System.out.print(".");
-                    PlayMIDI();
                     break;
 
                 // Пробел (между словами - 7 точек тишины)
@@ -271,20 +231,6 @@ public class PlayMacro {
 
     }
 
-    private static void PlayMIDI() {
-        try {
-            Synthesizer synth = MidiSystem.getSynthesizer();
-            synth.open();
-            MidiChannel[] channels = synth.getChannels();
-            channels[0].programChange(94);
-            channels[0].noteOn(65, 80);
-            Thread.sleep(200); // in milliseconds
-            channels[0].noteOff(65);
-            synth.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void TestSample() throws Exception {
         int tone = 700;         // Тональность посылки, Гц

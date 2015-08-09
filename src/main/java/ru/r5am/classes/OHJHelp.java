@@ -5,13 +5,18 @@ import oracle.help.library.helpset.HelpSet;
 import oracle.help.library.helpset.HelpSetParseException;
 
 /**
- * Created by Aleksandr Jashhuk (R5AM) on 21.06.2015.
+ * @author  Created by Aleksandr Jashhuk (R5AM) on 21.06.2015.
  */
 
 public class OHJHelp {
 
     Help myHelp = new Help();
 
+    /**
+     *
+     * @throws HelpSetParseException
+     *
+     */
     public void showHelp() throws HelpSetParseException {
 
         String helpSetFileName = "/help/cwmacrocom.hs"; // HelpSet file
