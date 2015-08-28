@@ -37,8 +37,9 @@ public class WriteIniFile
     public static boolean usePTT;
 
     // Задержки в миллисекундах
-    public static int pttToCwDelay;     //   после PTT до CW
-    public static int cwToPttDelay;     //   отпускание PTT после CW
+    public static int pttToCwDelay;             // после PTT до CW
+    public static int cwToPttDelay;             // отпускание PTT после CW
+    public static int betweenSymbolsDelay;      // Добавка к паузе между символами
 
     public WriteIniFile() throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException
     {

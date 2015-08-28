@@ -12,9 +12,9 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import jssc.SerialPortException;
 import oracle.help.library.helpset.HelpSetParseException;
 import ru.r5am.Main;
-import ru.r5am.classes.COMPort;
 import ru.r5am.classes.OHJHelp;
 import ru.r5am.classes.PlayMacro;
 import ru.r5am.filework.datafilework.ReadDataFile;
@@ -45,7 +45,6 @@ public class MainController {
 
         // Считываем параметры из INI-файла
         readConfig();
-        // Выводим параметры в полях Config-формы
 
         // Считываем макросы из MKS-файла
         readMacros();
@@ -62,7 +61,7 @@ public class MainController {
     /**
      * Считываем параметры из INI-файла
      */
-    private void readConfig() throws InvocationTargetException, NoSuchMethodException,
+     void readConfig() throws InvocationTargetException, NoSuchMethodException,
                                      InstantiationException, IOException, IllegalAccessException {
 
             // Существует ли INI-файл с параметрами?
@@ -169,17 +168,11 @@ public class MainController {
             case F5:
                 buttonF5.requestFocus();
                 PlayMacro.playMacro(labelF5.getText());
-                // PlayMacro.TestWaveFile();
-//                PlayMacro.TestSample();
                 break;
 
             case F6:
                 buttonF6.requestFocus();
                 PlayMacro.playMacro(labelF6.getText());
-
-                // Список доступных СОМ-портов
-                    //COMPort MyPort = new COMPort();
-                    //MyPort.listCOMPorts();
 
                 // Тестики :-)
                     //MyPort.testPORT();
@@ -194,7 +187,7 @@ public class MainController {
             NoSuchMethodException,
             InstantiationException,
             IOException,
-            IllegalAccessException, HelpSetParseException {
+            IllegalAccessException, HelpSetParseException, SerialPortException {
 
         Object source = actionEvent.getSource();
 
@@ -264,7 +257,7 @@ public class MainController {
 
             case "buttonF6":
                 PlayMacro.playMacro(labelF6.getText());
-                new COMPort().testPORT();
+//                new COMPort().testPORT();
                 break;
 
             case "buttonOkAbout":
@@ -277,7 +270,6 @@ public class MainController {
 
     /**
      * Запускаем форму редактирования параметров
-     * @param actionEvent
      */
     private void actionConfig(ActionEvent actionEvent) {
 
@@ -321,7 +313,6 @@ public class MainController {
 
     /**
      *  Запускаем форму редактирования макросов
-     *  @param actionEvent
      */
     private void actionEdit(ActionEvent actionEvent) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException {
 
@@ -366,7 +357,6 @@ public class MainController {
 
     /**
      * Запускаем модальное окно "О программе"
-     * @param actionEvent
      */
     private void showAboutWindow(ActionEvent actionEvent) {
 
@@ -411,7 +401,6 @@ public class MainController {
 
     /**
      * Метод закрытия окна
-     * @param actionEvent
      */
     public static void actionClose(ActionEvent actionEvent) {
         Node source = (Node) actionEvent.getSource();

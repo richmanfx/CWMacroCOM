@@ -29,8 +29,8 @@ public class Main extends Application {
         // Максимальные и минимальные размеры главного окна
         int maximumWindowHeight = 630;       // Pixels
         int maximumWindowWidth = 800;
-        int minimumWindowHeight = 130;
-        int minimumWindowWidth = 290;
+        int minimumWindowHeight = 125;
+        int minimumWindowWidth = 125;
 
         Parent root;
 

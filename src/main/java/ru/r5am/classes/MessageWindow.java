@@ -14,18 +14,17 @@ import ru.r5am.controllers.MessageController;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
+/*
  * Created by Aleksandr Jashhuk (R5AM) on 14.05.2015.
  */
 
 public class MessageWindow {
 
-    public void showMessageWindow(ActionEvent actionEvent, String title, String message) {
+    public void showMessageWindow(ActionEvent actionEvent,
+                                  String title, String message) {
 
         MessageController.messageText = message;
         String fxmlMessageForm = "/fxml/message.fxml";
-        int maximumWindowWidth = 400;           // Pixels
-        int minimumWindowHeight = 250;
 
         try {
 
@@ -44,8 +43,6 @@ public class MessageWindow {
             Stage stage = new Stage();
 //            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxmlMessageForm));
             stage.setTitle(title + ".");
-            stage.setMaxWidth(maximumWindowWidth);
-            stage.setMinHeight(minimumWindowHeight);
 
             // Установка иконки окна
             stage.getIcons().add(new Image(Main.programIcon));

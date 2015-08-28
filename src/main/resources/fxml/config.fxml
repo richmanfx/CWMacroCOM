@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.ConfigController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="background" stylesheets="/css/cwmacrocom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.r5am.controllers.ConfigController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -27,7 +27,7 @@
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <Label layoutY="15.0" styleClass="label2" text="Калибр скорости CW" AnchorPane.rightAnchor="120.0">
+                  <Label layoutX="300.0" layoutY="15.0" styleClass="label2" text="Калибр скорости CW" AnchorPane.rightAnchor="146.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -40,16 +40,21 @@
             <AnchorPane prefHeight="50.0" prefWidth="600.0">
                <children>
                   <Separator layoutX="25.0" prefHeight="0.0" prefWidth="550.0" />
-                  <Label alignment="CENTER" layoutX="213.0" layoutY="15.0" styleClass="label2" text="COM порт">
+                  <Label alignment="CENTER" layoutX="40.0" layoutY="15.0" styleClass="label2" text="COM порт">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldNamePort" alignment="CENTER" layoutX="306.0" layoutY="10.0" prefHeight="32.0" prefWidth="80.0" styleClass="textfield">
+                  <TextField fx:id="textFieldNamePort" alignment="CENTER" layoutX="170.0" layoutY="10.0" prefHeight="32.0" prefWidth="80.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
+                  <Button fx:id="buttonListCOMs" layoutX="300.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonProcessing" text="Доступые порты">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -75,7 +80,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldBaudRate" layoutX="460.0" layoutY="10.0" prefHeight="32.0" prefWidth="100.0" styleClass="textfield">
+                  <TextField fx:id="textFieldBaudRate" layoutX="450.0" layoutY="10.0" prefHeight="32.0" prefWidth="112.0" styleClass="textfield" AnchorPane.rightAnchor="40.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -94,7 +99,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldStopBits" layoutX="150.0" layoutY="10.0" prefHeight="32.0" prefWidth="50.0" styleClass="textfield">
+                  <TextField fx:id="textFieldStopBits" layoutX="171.0" layoutY="10.0" prefHeight="30.0" prefWidth="50.0" styleClass="textfield">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -164,14 +169,27 @@
                   </TextField>
                </children>
                <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </AnchorPane>
+            <AnchorPane prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label layoutX="40.0" layoutY="15.0" styleClass="label2" text="Увеличить паузу между  символами на, мс">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldDelayBetweenSymbols" layoutX="400.0" layoutY="10.0" prefHeight="22.0" prefWidth="60.0" styleClass="textfield">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </AnchorPane>
-            <AnchorPane prefHeight="10.0" prefWidth="600.0">
-               <children>
-                  <Separator layoutX="25.0" prefHeight="0.0" prefWidth="550.0" />
-               </children>
-            </AnchorPane>
+            <Separator prefHeight="0.0" prefWidth="550.0" />
          </children>
       </VBox>
    </center>

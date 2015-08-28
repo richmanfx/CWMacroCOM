@@ -3,94 +3,107 @@ package ru.r5am.classes;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
+import ru.r5am.filework.inifilework.ReadIniFile;
 
-/**
+/*
  * Created by Aleksandr Jashhuk (R5AM) on 09.05.2015.
  */
 
-public class COMPort {
+public class COMPort
+{
+    static SerialPort serialPort;
 
-    public void testPORT() {
-        String nameCOMPort = "COM6";        // COM6
-                                            // PTT line - RTS
-                                            // Key line - DTR
-        // Параметры СОМ-порта
-        int baudRate = 9600;
-        int dataBits = 8;
-        int stopBits = 1;
+    public static void initCOMPort()
+    {
+
+        // Чётность нужна в INT  :-)
         int parity = 0;
-
-        // Массив для статусов порта
-        //  int[] status = new int[4];
+        if(ReadIniFile.parity) parity = 1;
 
         // Экземпляр порта
-        SerialPort serialPort = new SerialPort(nameCOMPort);
+        serialPort = new SerialPort(ReadIniFile.nameCOMport);
 
-        try {
+        try
+        {
             // Открываем порт
             serialPort.openPort();
+
             // Выставляем параметры порта
-            serialPort.setParams(baudRate, dataBits, stopBits, parity);
-
-//            serialPort.writeBytes("Test string".getBytes());
-
-//            serialPort.setRTS(true);
-
-            for(int i = 1; i<=5; i++) {
-
-                // Установить линию DTR
-                if(serialPort.setDTR(true)) {
-                    System.out.println("DTR has been successfully changed.");
-                }
-                else {
-                    System.out.println("DTR has not been changed.");
-                }
-
-                // Задержка в миллисекундах
-                // System.out.println("Начало задержки");
-                try {
-                    Thread.sleep(35);
-                    // any action
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                // System.out.println("Конец задержки");
-                serialPort.setDTR(false);
-
-                try {
-                    Thread.sleep(35);
-                    // any action
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-//            status = serialPort.getLinesStatus();
-
-            serialPort.closePort();
-
-            // Вывод массива статусов
-//            for(int i=0; i<status.length; i++) {
-//                System.out.println(status[i]);
-//            }
-
-        } catch (SerialPortException e) {
+            serialPort.setParams(ReadIniFile.baudRate,
+                                 ReadIniFile.dataBits,
+                                 ReadIniFile.stopBits,
+                                 parity);
+        }
+        catch (SerialPortException e)
+        {
             e.printStackTrace();
         }
+    }
 
-
+    /*
+    * Вывод списка доступных COM-портов
+    */
+    public String[] listCOMPorts()
+    {
+        // Метод getPortNames() возвращает массив строк. Элементы массива уже отсортированы.
+        String[] portNames = SerialPortList.getPortNames();
+        for (String portName : portNames)
+        {
+            System.out.println(portName);
+        }
+        return portNames;
     }
 
 
+    /*
+    * Выставляем сигнал на заданное время
+    */
+    public static void onCOMSignals(int duration, String signal) throws SerialPortException {
+        // Включение сигнала
+        switch (signal)
+        {
+            case "DTR":
+                // Установить линию DTR
+                if (!serialPort.setDTR(true))
+                {
+                    System.out.println("DTR has not been changed.");
+                }
 
-    public void listCOMPorts() {
-        //Метод getPortNames() возвращает массив строк. Элементы массива уже отсортированы.
-        String[] portNames = SerialPortList.getPortNames();
-        for (String portName : portNames) {
-            System.out.println(portName);
+                // Задержка
+                try
+                {
+                    Thread.sleep(duration);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+
+                // Выключеие сигнала
+                serialPort.setDTR(false);
+            break;
+
+            case "RTS":
+                // Установить линию RTS
+                if (!serialPort.setRTS(true))
+                {
+                    System.out.println("RTS has not been changed.");
+                }
+
+                // Задержка
+                try
+                {
+                    Thread.sleep(duration);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+
+                // Выключеие сигнала
+                serialPort.setRTS(false);
+            break;
         }
-//        System.out.println(SerialNativeInterface.getOsType());
     }
 
 }

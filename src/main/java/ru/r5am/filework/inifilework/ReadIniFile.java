@@ -38,8 +38,9 @@ public class ReadIniFile
     public static boolean usePTT = false;
 
     // Задержки в миллисекундах
-    public static int pttToCwDelay = 0;     //   после PTT до CW
-    public static int cwToPttDelay = 0;     //   отпускание PTT после CW
+    public static int pttToCwDelay = 0;             // после PTT до CW
+    public static int cwToPttDelay = 0;             // отпускание PTT после CW
+    public static int betweenSymbolsDelay = 0;      // Добавка к паузе между символами
 
     public ReadIniFile() throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException
     {

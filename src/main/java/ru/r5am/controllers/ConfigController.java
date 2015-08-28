@@ -3,6 +3,7 @@ package ru.r5am.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import ru.r5am.classes.COMPort;
 import ru.r5am.classes.MessageWindow;
 import ru.r5am.filework.inifilework.ReadIniFile;
 import ru.r5am.filework.inifilework.WriteIniFile;
@@ -35,6 +36,7 @@ public class ConfigController {
     @FXML private CheckBox checkBoxUsePTT;
     @FXML private TextField textFieldDelayPTTtoCW;
     @FXML private TextField textFieldDelayCWtoPTT;
+    @FXML private TextField textFieldDelayBetweenSymbols;
 
     @FXML private void initialize() {
 
@@ -71,9 +73,11 @@ public class ConfigController {
         checkBoxUsePTT.setSelected(ReadIniFile.usePTT);
         textFieldDelayPTTtoCW.setText(Integer.toString(ReadIniFile.pttToCwDelay));
         textFieldDelayCWtoPTT.setText(Integer.toString(ReadIniFile.cwToPttDelay));
+        textFieldDelayBetweenSymbols.setText(Integer.toString(ReadIniFile.betweenSymbolsDelay));
     }
 
     public void buttonProcessing(ActionEvent actionEvent) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IOException, InvocationTargetException {
+
         // Определить источник события (нажатия)
         Object source = actionEvent.getSource();
 
@@ -94,13 +98,15 @@ public class ConfigController {
                     actionSaveIni();
                     // Закрываем форму редактирования
                     MainController.actionClose(actionEvent);
+                    // Перечитываем параметры из INI-файла
+                    // new ReadIniFile();  не работает !!!
                 } else {
 //                    System.out.println("Не валидные данные в форме.");
                     // Вывод окна сообщения
                     MessageWindow myMessageWindows = new MessageWindow();
                     myMessageWindows.showMessageWindow(actionEvent,
-                            "Сообщение",
-                            "Введены неверные данные:\n" +
+                                                      "Сообщение",
+                                                      "Введены неверные данные:\n" +
                             actionValidateTextField());     // Поле с невалидными данными
                     // TODO: Здесь будет beep
                     // beep();
@@ -111,6 +117,26 @@ public class ConfigController {
                 // Выход без сохранения параметров
                 MainController.actionClose(actionEvent);
                 break;
+
+            case "buttonListCOMs":
+                // Показать доступные COM-порты
+                COMPort MyPort = new COMPort();
+                String COMPortNames[] = MyPort.listCOMPorts();
+
+                String listCOMPorts = "";
+                for (String portName : COMPortNames)
+                {
+                    //System.out.println(portName);
+                    listCOMPorts = listCOMPorts + portName + "\n";
+                }
+
+                // Вывод окна сообщения
+                MessageWindow myMessageWindows = new MessageWindow();
+                myMessageWindows.showMessageWindow(actionEvent,
+                        "Сообщение",
+                        "Доступные COM-порты:\n" +
+                        listCOMPorts);
+
         }
     }
 
@@ -213,6 +239,15 @@ public class ConfigController {
             }
         }
 
+        // Дополнительная задержка между символами
+        {
+            Pattern p = Pattern.compile("^\\d{1,3}$");      // Проверяем регулярным выражением
+            Matcher m = p.matcher(textFieldDelayBetweenSymbols.getText());
+            if (!m.matches()) {
+                returnValue = "Дополнительная задержка между символами\n(0...999 мс)";
+            }
+        }
+
         return returnValue;
     }
 
@@ -238,6 +273,7 @@ public class ConfigController {
         WriteIniFile.usePTT = checkBoxUsePTT.isSelected();
         WriteIniFile.pttToCwDelay = Integer.parseInt(textFieldDelayPTTtoCW.getText());
         WriteIniFile.cwToPttDelay = Integer.parseInt(textFieldDelayCWtoPTT.getText());
+        WriteIniFile.betweenSymbolsDelay = Integer.parseInt(textFieldDelayBetweenSymbols.getText());
 
         new WriteIniFile();
     }
